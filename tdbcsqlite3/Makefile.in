@@ -98,6 +98,10 @@ TCL_SRC_DIR	= @TCL_SRC_DIR@
 #TK_BIN_DIR	= @TK_BIN_DIR@
 #TK_SRC_DIR	= @TK_SRC_DIR@
 
+TDBC_VERSION	= @TDBC_VERSION@
+TDBC_BIN_DIR	= @tdbc_BIN_DIR@
+TDBC_LIB_FILE	= @TDBC_LIB_FILE@
+
 # Not used, but retained for reference of what libs Tcl required
 #TCL_LIBS	= @TCL_LIBS@
 
@@ -189,9 +193,11 @@ install-doc: doc
 # the [package ifneeded] to fail. Leave it in, even though it's
 # spurious.
 test: libraries
-	$(TCLSH) `@CYGPATH@ $(srcdir)/tests/all.tcl` $(TESTFLAGS) \
-		-load "package ifneeded tdbc::sqlite3 $(PACKAGE_VERSION) \
-			[list source `@CYGPATH@ $(srcdir)/library/tdbcsqlite3.tcl`]\;"
+	$(TCLSH) `@CYGPATH@ $(srcdir)/tests/all.tcl` $(TESTFLAGS) -load \
+		"package ifneeded tdbc::sqlite3 $(PACKAGE_VERSION) \
+			[list source `@CYGPATH@ $(srcdir)/library/tdbcsqlite3.tcl`];\
+		package ifneeded tdbc ${TDBC_VERSION} \
+			[list source `@CYGPATH@ $(TDBC_BIN_DIR)/tdbc.tcl`]\;[list load `@CYGPATH@ $(TDBC_BIN_DIR)/$(TDBC_LIB_FILE)` tdbc]"
 
 shell: libraries
 	@$(TCLSH) $(SCRIPT)
