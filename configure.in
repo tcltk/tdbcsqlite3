@@ -29,6 +29,9 @@ TEA_LOAD_TCLCONFIG
 
 TEA_PATH_CONFIG(tdbc)
 TEA_LOAD_CONFIG(tdbc)
+AC_SUBST(TDBC_VERSION)
+AC_SUBST(tdbc_BIN_DIR)
+AC_SUBST(TDBC_LIB_FILE)
 
 #-----------------------------------------------------------------------
 # Handle the --prefix=... option by defaulting to what Tcl gave.
