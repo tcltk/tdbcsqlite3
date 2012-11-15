@@ -1,3 +1,10 @@
+2012-11-14  Donal K. Fellows  <Donal.K.Fellows@man.ac.uk>
+
+	* configure.in:  Added configuration code to allow `make test` to
+	* Makefile.in:   run against an uninstalled 'tdbc' package.
+	* configure:     autoconf-2.68
+		*** UPGRADED THE AUTOCONF VERSION IN USE ***
+
 2012-11-08  Don Porter  <dgp@users.sourceforge.net>
 
 	* configure.in:
@@ -21,7 +28,7 @@
 2012-07-26  Jan Nijtmans  <jan.nijtmans@gmail.com>
 
 	* tclconfig/install-sh:  Update to latest TEA
-	* tclconfig/tcl.m4:	
+	* tclconfig/tcl.m4:
 	* configure:		autoconf-2.59
 
 2012-05-07  Kevin B. Kenny  <kennyb@acm.org>
