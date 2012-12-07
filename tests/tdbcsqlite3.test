@@ -23,7 +23,7 @@ package require tdbc::sqlite3
 
 set testdir [makeDirectory tdbctest]
 set testFileName test.db
-set testDBName [file join $testdir $testFileName]
+set testDBName [makeFile {} $testFileName $testdir]
 catch {file delete -force $testDBName}
 
 #-------------------------------------------------------------------------------
